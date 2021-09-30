@@ -5,6 +5,7 @@ using namespace std;
 class MaximalRectangle {
 public:
     int maximalRectangle(vector<vector<char>>& matrix) {
+        // *** 当参数为 [["0","1"],["0","1"]] 或者 [["0","1"]] 时候 不通过，请老师指点然后再修改作业 ***
         // 先转换成柱状图，然后求柱状图中的最大的矩形
         // 操作当前柱，取左边最高 和 右边最高 然后 取最小高度 乘以宽度
         // 宽度如果是连续的，是对应增加的
