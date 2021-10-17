@@ -4,7 +4,7 @@ using namespace std;
 
 class ThreeSum{
     public:
-        vector<vector<int>> threeSum(vector<vector<int>>& nums, int target) {
+        vector<vector<int>> threeSum(vector<int>& nums) {
             // 
             sort(nums.begin(), nums.end());
             vector<vector<int>> ans;
@@ -12,12 +12,13 @@ class ThreeSum{
 
             for (int i = 0; i < nums.size(); i++) {
                 if (i > 0 && nums[i] == nums[i - 1]) continue;
-                // 得到两数相加的结果
+                // 得到两数相加的结果 -nums[i] = 0 - nums[i] 
+                // i + j + k = 0 那么 i + j = -k 
                 vector<vector<int>> jks = twoSum(nums, i + 1, -nums[i]);
-                for (vector<vector<int>> jk : jks) {
+                for (vector<int>& jk : jks)
+                {
                     ans.push_back({nums[i], jk[0], jk[1]});
                 }
-
             }
             return ans;
 
