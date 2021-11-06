@@ -32,7 +32,7 @@ public:
     }
 
     vector<int> getNewsFeed(int userId) {
-        // 双端队列 保证是有序的
+        // 优先队列 保证是有序的
         priority_queue<pair<int, int>> feed;
         for (const auto& tweet : tweets[userId]) {
             feed.push(tweet);
