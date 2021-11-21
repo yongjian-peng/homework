@@ -43,8 +43,9 @@ private:
         int right = max(0, dfs(root->right));
 
         int lmr = left + root->val + right;
-
+        // 返回路径中的最大和 单支 路径中只能走一边（包括自己）
         int ret = root->val + max(0, max(left, right));
+        // 节点的最大和
         val = max(val, max(lmr, ret));
         return ret;
     }
