@@ -33,7 +33,7 @@ struct Node {
     Node *right, *down;
     int val;
     Node(Node *right, Node *down, int val): right(right), down(down), val(val) {}
-}
+};
 
 class Skiplist
 {
@@ -79,7 +79,7 @@ public:
             head = new Node(new Node(nullptr, downNode, num), head, 0);
         }
     }
-    bool earse(int num) {
+    bool erase(int num) {
         Node *p = head;
         bool seen = false;
         while (p) {
@@ -99,4 +99,4 @@ public:
 private:
     Node *head;
     vector<Node *> insertPoints;
-}
+};

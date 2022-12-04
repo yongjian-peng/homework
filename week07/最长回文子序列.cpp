@@ -14,7 +14,7 @@ class Solution
 {
     /* 题解：DP
         转移方程：dp[i][j] = max(dp[i+1][j], dp[i][j-1]);
-        初始值：dp[0][0] = 0; 目标值： dp[0][n-1]
+        初始值：dp[i][i] = 1; 目标值： dp[0][n-1]
      */
 public:
     int longestPalindromeSubseq(string s) {

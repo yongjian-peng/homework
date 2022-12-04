@@ -9,11 +9,6 @@
 using namespace std;
 class Solution
 {
-    /**
-     * Your TopVotedCandidate object will be instantiated and called as such:
-     * TopVotedCandidate* obj = new TopVotedCandidate(persons, times);
-     * int param_1 = obj->q(t);
-     */
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
         long long sum = 0;

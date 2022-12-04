@@ -75,4 +75,5 @@ private:
     }
     int rows, cols;
     vector<int> fa;
+    int ans;
 }

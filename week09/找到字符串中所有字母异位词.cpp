@@ -18,21 +18,31 @@
 using namespace std;
 class Solution
 {
-    /* 题解：字符从末尾开始遍历，如果末尾是空格，则过滤掉空格，向前遍历字符遇到空格为止
-        如果末尾是字符，向前遍历遇到空格为止
-        结果就是 遇到空格结尾 减去 空格开始的 值
+    /* 题解：滑动窗口 + 数组模拟hash表
      */
 public:
-    int lengthOfLastWord(string s) {
-        int end = s.size() - 1;
-        while (end >= 0 && s[end] == ' ')
-            end--;
-        if (end < 0)
-            return 0;
-        int start = end;
-        // 循环字符 遇到空格的位置
-        while (start >= 0 && s[start] != ' ')
-            start--;
-        return end - start;
+    vector<int> findAnagrams(string s, string p) {
+        vector<int> res;
+        int resCount = p.size();
+        vector<int> pFreq(26);
+        for (int i = 0; i < p.size(); i++)
+            pFreq[p[i] - 'a']++;
+        vector<int> sFreq(26);
+        for (int i = 0; i < s.size(); i++) {
+            char c = s[i];
+            sFreq[c - 'a']++; // 向窗口末尾加入1个新字符
+
+            if (sFreq[c - 'a'] <= pFreq[c - 'a'])
+                resCount--;
+            if (i >= p.size()) {
+                char h = s[i - p.size()]; // 上一轮窗口中最前面的字符
+                sFreq[h - 'a']--;
+                if (sFreq[h - 'a'] < pFreq[h - 'a'])
+                    resCount++;
+            }
+            if (resCount == 0)
+                res.push_back(i - p.size() + 1);
+        }
+        return res;
     }
 }
